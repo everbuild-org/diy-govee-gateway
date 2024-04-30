@@ -46,9 +46,9 @@ void NetClient::submit(const char *id, float temperature, float humidity, float 
     sprintf(buf, "{\"id\": \"%s\", \"temperature\": %04f, \"humidity\": %04f, \"battery\": %04f}", id, temperature, humidity, battery);
     int len = strlen(buf);
 
-    client.print("GET https://");
+    client.print("PUT https://");
     client.print(this->server);
-    client.println(" HTTP/1.0");
+    client.println("/api HTTP/1.0");
     client.print("Host: ");
     client.println(this->server);
     client.println("Content-Type: application/json");

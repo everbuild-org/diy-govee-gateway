@@ -14,7 +14,6 @@ val appMicrometerRegistry = PrometheusMeterRegistry(PrometheusConfig.DEFAULT)
 fun Application.configureMonitoring() {
     install(MicrometerMetrics) {
         registry = appMicrometerRegistry
-        // ...
     }
     install(DropwizardMetrics) {
         Slf4jReporter.forRegistry(registry)
