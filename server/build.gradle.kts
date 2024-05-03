@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "org.everbuild.govee"
-version = "0.0.1"
+version = "latest"
 
 application {
     mainClass.set("org.everbuild.govee.ApplicationKt")
