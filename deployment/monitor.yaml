@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: govee-server
+  # Change this to the namespace the Prometheus instance is running in
+  namespace: monitoring
+  labels:
+    team: govee-server
+    scrape: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: govee-server
+  namespaceSelector:
+    matchNames:
+    - govee-server
+  endpoints:
+  - port: web
+    path: /metrics-micrometer
+    interval: 15s
+    honorLabels: true

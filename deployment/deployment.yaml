@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: govee-server
+  namespace: govee-server
+spec:
+  selector:
+    matchLabels:
+      app: govee-server
+  template:
+    metadata:
+      labels:
+        app: govee-server
+    spec:
+      containers:
+      - name: govee-server
+        image: ghcr.io/everbuild-org/govee-server:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
