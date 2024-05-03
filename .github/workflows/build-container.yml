@@ -17,13 +17,13 @@ jobs:
               with:
                 java-version: '11'
                 distribution: 'temurin'
-            - name: Go to the project directory
-              run: cd server
             - name: Make gradlew executable
+              working-directory: server
               run: chmod +x gradlew
             - name: Setup gradle
-              uses: gradle/gradle-build-action@v2
+              uses: gradle/setup-gradle@v3
             - name: Execute Gradle build
+              working-directory: server
               run: ./gradlew --no-daemon jibDockerBuild
             - name: Tag Image
               run: docker tag server:latest ghcr.io/everbuild-org/govee-server:latest
