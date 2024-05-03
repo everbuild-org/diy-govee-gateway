@@ -1,14 +1,14 @@
 #pragma once
 
 #include <Arduino.h>
-#include <WiFiClientSecure.h>
+#include <WiFiClient.h>
 
 class NetClient {
     private:
         String server;
         String userid;
         bool enabled;
-        WiFiClientSecure client;
+        WiFiClient client;
 
     public:
         NetClient(String ssid, String password, String server, String userid);
