@@ -26,7 +26,7 @@ jobs:
               working-directory: server
               run: ./gradlew --no-daemon jibDockerBuild
             - name: Tag Image
-              run: docker tag server:latest ghcr.io/everbuild-org/govee-server:latest
+              run: docker tag server ghcr.io/everbuild-org/govee-server:latest
             - name: Login to GitHub Container Registry
               run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u everbuild-org --password-stdin
             - name: Push Image
