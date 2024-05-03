@@ -21,7 +21,7 @@ jobs:
               working-directory: server
               run: chmod +x gradlew
             - name: Setup gradle
-              uses: gradle/setup-gradle@v3
+              uses: gradle/actions/setup-gradle@v3
             - name: Execute Gradle build
               working-directory: server
               run: ./gradlew --no-daemon jibDockerBuild
